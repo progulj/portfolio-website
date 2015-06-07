@@ -15,7 +15,7 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><script src="assets/css/ie/respond.min.js"></script><![endif]-->
 	</head>
-	<body>
+	<body ng-app="app">
 
 		<!-- Nav -->
 			<nav id="nav">
@@ -105,17 +105,17 @@
 						<div class="row">
 							<div class="4u 12u(mobile)">
 								<article class="box style2">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<h3><a href="#">Contact Book</a></h3>
+									<a href="http://www.simple-app.cu.cc/" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<h3><a href="http://www.simple-app.cu.cc/">Contact Book</a></h3>
                                     <p>Simple CRUD web application</p>
-									<p>C# + ASP.NET + AngularJS +HTML5 + CSS3 +Postgresql</p>
+									<p>Java + AngularJS + Bootstrap +HTML5 + CSS3 +Postgresql</p>
 								</article>
 							</div>
 							<div class="4u 12u(mobile)">
 								<article class="box style2">
 									<a href="http://www.hardware-admin.cu.cc/" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
 									<h3><a href="http://www.hardware-admin.cu.cc/">Hardware Admin</a></h3>
-									<p>Samll web app for hardware administration</p>
+									<p>Small web app for hardware administration</p>
                                     <p>Java + Spring + Hibernate+ AngularJS +HTML5 + CSS3 +Postgresql</p>
 								</article>
 							</div>
@@ -177,7 +177,7 @@
 			</div>
 
 		<!-- Contact -->
-			<div class="wrapper style4">
+			<div class="wrapper style4" ng-controller="EmailController" novalidate>
 				<article id="contact" class="container 75%">
 					<header>
 						<h2>Contact me</h2>
@@ -189,28 +189,27 @@
 									<div>
 										<div class="row">
 											<div class="6u 12u(mobile)">
-												<input type="text" name="name" id="name" placeholder="Name" />
+												<input type="text" name="name" id="name" ng-model="name" placeholder="Name" required/>
 											</div>
 											<div class="6u 12u(mobile)">
-												<input type="text" name="email" id="email" placeholder="Email" />
+												<input type="text" name="email" id="email" ng-model="emailFrom" placeholder="Email" required/>
 											</div>
 										</div>
 										<div class="row">
 											<div class="12u">
-												<input type="text" name="subject" id="subject" placeholder="Subject" />
+												<input type="text" name="subject" id="subject"  ng-model="subject" placeholder="Subject" required/>
 											</div>
 										</div>
 										<div class="row">
 											<div class="12u">
-												<textarea name="message" id="message" placeholder="Message"></textarea>
+												<textarea name="message" id="message" ng-model="message" placeholder="Message" required></textarea>
 											</div>
 										</div>
 										<div class="row 200%">
 											<div class="12u">
-												<ul class="actions">
-													<li><input type="submit" value="Send Message" /></li>
-													<li><input type="reset" value="Clear Form" class="alt" /></li>
-												</ul>
+												
+													<a href="#contact"  ng-click="sendEmail()"class="button big scrolly">Send Email</a>
+												
 											</div>
 										</div>
 									</div>
@@ -222,10 +221,9 @@
 								<hr />
 								<h3>Find me on ...</h3>
 								<ul class="social">
-									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-									<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+									<li><a href="https://www.facebook.com/petar.rogulj.3" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="https://hr.linkedin.com/pub/petar-rogulj/5a/320/233" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/progulj" class="icon fa-github"><span class="label">Github</span></a></li>
 								</ul>
 								<hr />
 							</div>
@@ -240,12 +238,14 @@
 			</div>
 
 		<!-- Scripts -->
+            <script src="bower_components/angular/angular.min.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/skel-viewport.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script src="assets/js/app.js"></script>
 
 	</body>
 </html>
